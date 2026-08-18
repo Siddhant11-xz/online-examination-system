@@ -226,12 +226,12 @@ public class ExamApp extends JFrame implements ActionListener {
         }
 
         else if (e.getSource() == btnPrev) {
-            saveSelection();
             currentQuestion = currentQuestion - 1;
 
             if (btnNext.getText().equals("Next Review")) {
                 loadReviewUI();
             } else {
+                saveSelection();
                 loadQuestionUI();
             }
         }
