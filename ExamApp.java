@@ -9,13 +9,13 @@ public class ExamApp extends JFrame implements ActionListener {
     int currentQuestion = 0;
     int score = 0;
 
-    int[] userAnswers = {-1, -1, -1, -1, -1};
+    int[] userAnswers = {-1, -1, -1, -1, -1}; 
 
     JPanel loginPanel;
     JTextField txtName;
     JComboBox<String> cbExamList;
     JButton btnStart;
-    JLabel lblWarning;
+    JLabel lblWarning; 
 
     JPanel examPanel;
     JLabel lblStudentInfo, lblQuestion, lblResult, lblCorrectAnsInfo;
@@ -24,34 +24,34 @@ public class ExamApp extends JFrame implements ActionListener {
     JButton btnNext, btnPrev, btnSubmit;
 
     String[] javaQuestions = {
-            "Q1: What is the full form of JDK?",
-            "Q2: Which component runs Java code?",
-            "Q3: Which keyword is used to inherit a class in Java?",
-            "Q4: What is the default value of a boolean variable?",
-            "Q5: Which of these is NOT a Java access modifier?"
+        "Q1: What is the full form of JDK?",
+        "Q2: Which component runs Java code?",
+        "Q3: Which keyword is used to inherit a class in Java?",
+        "Q4: What is the default value of a boolean variable?",
+        "Q5: Which of these is NOT a Java access modifier?"
     };
     String[][] javaOptions = {
-            {"Java Development Kit", "Java Design Kit", "Java Desktop Key", "None"},
-            {"JDK", "JVM", "JRE", "AWT"},
-            {"implements", "extends", "inherits", "super"},
-            {"true", "false", "0", "null"},
-            {"public", "private", "protected", "friend"}
+        {"Java Development Kit", "Java Design Kit", "Java Desktop Key", "None"},
+        {"JDK", "JVM", "JRE", "AWT"},
+        {"implements", "extends", "inherits", "super"},
+        {"true", "false", "0", "null"},
+        {"public", "private", "protected", "friend"}
     };
     int[] javaAnswers = {0, 1, 1, 1, 3};
 
     String[] gkQuestions = {
-            "Q1: Which planet is known as the Red Planet?",
-            "Q2: What is the capital of India?",
-            "Q3: Which is the largest ocean on Earth?",
-            "Q4: Who is known as the Father of the Indian Constitution?",
-            "Q5: How many continents are there on Earth?"
+        "Q1: Which planet is known as the Red Planet?",
+        "Q2: What is the capital of India?",
+        "Q3: Which is the largest ocean on Earth?",
+        "Q4: Who is known as the Father of the Indian Constitution?",
+        "Q5: How many continents are there on Earth?"
     };
     String[][] gkOptions = {
-            {"Earth", "Jupiter", "Mars", "Saturn"},
-            {"Mumbai", "Delhi", "Kolkata", "Chennai"},
-            {"Atlantic Ocean", "Indian Ocean", "Pacific Ocean", "Arctic Ocean"},
-            {"Mahatma Gandhi", "Dr. B.R. Ambedkar", "Jawaharlal Nehru", "Subhash Chandra Bose"},
-            {"5", "6", "7", "8"}
+        {"Earth", "Jupiter", "Mars", "Saturn"},
+        {"Mumbai", "Delhi", "Kolkata", "Chennai"},
+        {"Atlantic Ocean", "Indian Ocean", "Pacific Ocean", "Arctic Ocean"},
+        {"Mahatma Gandhi", "Dr. B.R. Ambedkar", "Jawaharlal Nehru", "Subhash Chandra Bose"},
+        {"5", "6", "7", "8"}
     };
     int[] gkAnswers = {2, 1, 2, 1, 2};
 
@@ -77,7 +77,7 @@ public class ExamApp extends JFrame implements ActionListener {
         cbExamList = new JComboBox<>(subjects);
         loginPanel.add(cbExamList);
 
-        lblWarning = new JLabel("");
+        lblWarning = new JLabel(""); 
         lblWarning.setForeground(Color.RED);
         loginPanel.add(lblWarning);
 
@@ -114,7 +114,7 @@ public class ExamApp extends JFrame implements ActionListener {
         lblCorrectAnsInfo = new JLabel("");
         lblCorrectAnsInfo.setForeground(new Color(39, 174, 96));
 
-        lblResult = new JLabel("");
+        lblResult = new JLabel(""); 
 
         examPanel.add(lblStudentInfo);
         examPanel.add(lblQuestion);
@@ -227,7 +227,7 @@ public class ExamApp extends JFrame implements ActionListener {
 
         else if (e.getSource() == btnPrev) {
             saveSelection();
-            currentQuestion--;
+            currentQuestion = currentQuestion - 1;
 
             if (btnNext.getText().equals("Next Review")) {
                 loadReviewUI();
@@ -238,7 +238,7 @@ public class ExamApp extends JFrame implements ActionListener {
 
         else if (e.getSource() == btnNext && btnNext.getText().equals("Next Question")) {
             saveSelection();
-            currentQuestion++;
+            currentQuestion = currentQuestion + 1;
             loadQuestionUI();
         }
 
@@ -246,9 +246,9 @@ public class ExamApp extends JFrame implements ActionListener {
             saveSelection();
 
             score = 0;
-            for (int i = 0; i < currentQuestions.length; i++) {
+            for (int i = 0; i < currentQuestions.length; i = i + 1) {
                 if (userAnswers[i] == currentAnswers[i]) {
-                    score++;
+                    score = score + 1;
                 }
             }
 
@@ -263,7 +263,7 @@ public class ExamApp extends JFrame implements ActionListener {
         }
 
         else if (e.getSource() == btnNext && btnNext.getText().equals("Next Review")) {
-            currentQuestion++;
+            currentQuestion = currentQuestion + 1;
             loadReviewUI();
         }
     }
